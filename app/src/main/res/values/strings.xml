@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GfycatViewer</string>
+    <string name="main_title">Gfycat Viewer</string>
+    <string name="video_poster">video poster</string>
+</resources>
