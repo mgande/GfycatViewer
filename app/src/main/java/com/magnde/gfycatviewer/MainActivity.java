@@ -5,9 +5,11 @@ import android.net.Uri;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.MediaController;
 import android.widget.Toast;
@@ -58,10 +60,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 final View poster = view.findViewById(R.id.poster);
-                poster.setVisibility(View.INVISIBLE);
+                poster.setVisibility(View.GONE);
 
                 JSONObject item = (JSONObject) mListAdapter.getItem(i);
                 final VideoView videoView = (VideoView) view.findViewById(R.id.video);
+
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(poster.getWidth(),
+                        poster.getHeight());
+                videoView.setLayoutParams(lp);
                 videoView.setVisibility(View.VISIBLE);
 
                 final MediaController mediaController = new MediaController(MainActivity.this);
